@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+    
+    <entry>
+      <title><![CDATA[本地存储localstorage]]></title>
+      <url>%2F2017%2F04%2F08%2F%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8localstorage%2F</url>
+      <content type="text"><![CDATA[本地存储localstorage localstorage 是 HTML5 提供的在客户端存储数据的新方法，主要作用是将数据保存在客户端中，并且数据是永久保存的，除非人为干预删除。 localstorage作为本地存储来使用，解决了cookie存储空间不足的问题：cookie中每条cookie的存储空间为4k，但localStorage的存储空间有5M大小。另外，相比于cookie，localStorage可以节约带宽，在同一个域内，浏览器每次向服务器发送请求，http都会带着cookie，使cookie在浏览器和服务器之间来回传递，浪费带宽，但localStorage将第一次请求的数据直接存储到本地，避免了来回传递。localstorage 的局限 只有版本较高的浏览器中才支持 localstorage localStorage的值的类型限定为string类型，使用 JSON 时需转换 如果存储内容过多会消耗内存空间，导致页面变卡，因为localStorage本质上是对字符串的读取 localstorage 有两种方法：分别是 localstorage 和 sessionStorage 。sessionStorage 方法针对一个 session 进行数据存储。当用户关闭浏览器窗口后，数据会被删除。localStorage与sessionStorage的唯一区别就是localStorage属于永久性存储，而sessionStorage在当会话结束的时候，sessionStorage中的键值对会被清空。localstorage的用法 我们在使用localStorage的时候，需要先判断浏览器是否支持localStorage这个属性： 123456if(window.localStorage)&#123; alert(&quot;浏览器支持localStorage&quot;); &#125;else&#123; alert(&quot;浏览器支持localStorage&quot;); &#125; ​ 接下来分别是它的写入、读取、删除 1234567891011121314151617//localStorage的写入var storage=window.localStorage; storage[&quot;a&quot;]=1; //写入a字段 storage.b=2; //写入b字段 storage.setItem(&quot;c&quot;,3); //写入c字段 console.log(typeof storage[&quot;a&quot;]); //string console.log(typeof storage[&quot;b&quot;]); //string console.log(typeof storage[&quot;c&quot;]); ​//string //localStorage的读取var a=storage.a; console.log(a); //1var b=storage[&quot;b&quot;]; console.log(b); //2var c=storage.getItem(&quot;c&quot;); console.log(c); ​ //3//localStorage的删除storage.clear(); //将localStorage的所有内容清除 使用key()方法，获取相应的键 1234567var storage=window.localStorage; storage.a=1; storage.setItem(&quot;c&quot;,3); for(var i=0;i&lt;storage.length;i++)&#123; var key = storage.key(i); console.log(key); //a c &#125; ​ 对用户访问页面的次数进行计数: 123456if(localStorage.pagecount)&#123; localStorage.pagecount = Number(localStorage.pagecount)+1; &#125;else&#123; localStorage.pagecount = 1; &#125; document.write(&quot;你第&quot;+localStorage.pagecount+&quot;访问该页面&quot;); ​ sessionStorage的用法和localStorage一样用法和localStorage一样，但是关闭计数页面后再打开时会重新开始计数。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[hexo的配置]]></title>
+      <url>%2F2017%2F04%2F07%2Fhexo%E7%9A%84%E9%85%8D%E7%BD%AE%2F</url>
+      <content type="text"><![CDATA[hexo的配置 配了一天，都没配好，好烦啊 配了一天，都没配好，好烦啊 配了一天，都没配好，好烦啊 配了一天，都没配好，好烦啊 配了一天，都没配好，好烦啊怎么办 配了一天，都没配好，好烦啊 配了一天，都没配好，好烦啊 配了一天，都没配好，好烦啊 配了一天，都没配好，好烦啊]]></content>
+    </entry>
+
+    
+  
+  
+</search>

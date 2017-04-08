@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/08/本地存储localstorage/index.html">
 <meta property="og:site_name" content="yedliu的博客">
 <meta property="og:description" content="本地存储localstorage localstorage 是 HTML5 提供的在客户端存储数据的新方法，主要作用是将数据保存在客户端中，并且数据是永久保存的，除非人为干预删除。 localstorage作为本地存储来使用，解决了cookie存储空间不足的问题：cookie中每条cookie的存储空间为4k，但localStorage的存储空间有5M大小。另外，相比于cookie，localSt">
-<meta property="og:updated_time" content="2017-04-08T05:48:29.125Z">
+<meta property="og:updated_time" content="2017-04-08T05:53:15.927Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="本地存储localstorage">
 <meta name="twitter:description" content="本地存储localstorage localstorage 是 HTML5 提供的在客户端存储数据的新方法，主要作用是将数据保存在客户端中，并且数据是永久保存的，除非人为干预删除。 localstorage作为本地存储来使用，解决了cookie存储空间不足的问题：cookie中每条cookie的存储空间为4k，但localStorage的存储空间有5M大小。另外，相比于cookie，localSt">
@@ -243,9 +243,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -364,22 +398,19 @@
       
 
       
-        <h2 id="本地存储localstorage"><a href="#本地存储localstorage" class="headerlink" title="本地存储localstorage"></a>本地存储localstorage</h2><ol>
+        <h2 id="本地存储localstorage"><a href="#本地存储localstorage" class="headerlink" title="本地存储localstorage"></a>本地存储localstorage</h2><ul>
 <li>localstorage 是 HTML5 提供的在客户端存储数据的新方法，主要作用是将数据保存在客户端中，并且数据是永久保存的，除非人为干预删除。</li>
-<li>localstorage作为本地存储来使用，解决了cookie存储空间不足的问题：cookie中每条cookie的存储空间为4k，但localStorage的存储空间有5M大小。另外，相比于cookie，localStorage可以节约带宽，在同一个域内，浏览器每次向服务器发送请求，http都会带着cookie，使cookie在浏览器和服务器之间来回传递，浪费带宽，但localStorage将第一次请求的数据直接存储到本地，避免了来回传递。<h3 id="localstorage-的局限"><a href="#localstorage-的局限" class="headerlink" title="localstorage 的局限"></a>localstorage 的局限</h3>1、只有版本较高的浏览器中才支持 localstorage<br>2、localStorage的值的类型限定为string类型，使用 JSON 时需转换<br>3、如果存储内容过多会消耗内存空间，导致页面变卡，因为localStorage本质上是对字符串的读取</li>
-</ol>
-<ul>
-<li>localstorage 有两种方法：分别是 localstorage 和 sessionStorage 。sessionStorage 方法针对一个 session 进行数据存储。当用户关闭浏览器窗口后，数据会被删除。localStorage与sessionStorage的唯一区别就是localStorage属于永久性存储，而sessionStorage在当会话结束的时候，sessionStorage中的键值对会被清空。<h3 id="localstorage的用法"><a href="#localstorage的用法" class="headerlink" title="localstorage的用法"></a>localstorage的用法</h3></li>
-</ul>
-<ul>
+<li>localstorage作为本地存储来使用，解决了cookie存储空间不足的问题：cookie中每条cookie的存储空间为4k，但localStorage的存储空间有5M大小。另外，相比于cookie，localStorage可以节约带宽，在同一个域内，浏览器每次向服务器发送请求，http都会带着cookie，使cookie在浏览器和服务器之间来回传递，浪费带宽，但localStorage将第一次请求的数据直接存储到本地，避免了来回传递。<h2 id="localstorage-的局限"><a href="#localstorage-的局限" class="headerlink" title="localstorage 的局限"></a>localstorage 的局限</h2></li>
+<li>只有版本较高的浏览器中才支持 localstorage</li>
+<li>localStorage的值的类型限定为string类型，使用 JSON 时需转换</li>
+<li>如果存储内容过多会消耗内存空间，导致页面变卡，因为localStorage本质上是对字符串的读取</li>
+<li>localstorage 有两种方法：分别是 localstorage 和 sessionStorage 。sessionStorage 方法针对一个 session 进行数据存储。当用户关闭浏览器窗口后，数据会被删除。localStorage与sessionStorage的唯一区别就是localStorage属于永久性存储，而sessionStorage在当会话结束的时候，sessionStorage中的键值对会被清空。<h2 id="localstorage的用法"><a href="#localstorage的用法" class="headerlink" title="localstorage的用法"></a>localstorage的用法</h2></li>
 <li><p>我们在使用localStorage的时候，需要先判断浏览器是否支持localStorage这个属性：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">if(window.localStorage)&#123;</div><div class="line"> alert(&quot;浏览器支持localStorage&quot;);</div><div class="line"> </div><div class="line"> &#125;else&#123;</div><div class="line"> alert(&quot;浏览器支持localStorage&quot;);</div><div class="line"> &#125;﻿​</div></pre></td></tr></table></figure>
 </li>
 <li><p>接下来分别是它的写入、读取、删除</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//localStorage的写入</div><div class="line">var storage=window.localStorage;</div><div class="line"> storage[&quot;a&quot;]=1;   //写入a字段</div><div class="line"> storage.b=2;   //写入b字段</div><div class="line"> storage.setItem(&quot;c&quot;,3);   //写入c字段</div><div class="line"> console.log(typeof storage[&quot;a&quot;]);  //string</div><div class="line"> console.log(typeof storage[&quot;b&quot;]);  //string</div><div class="line"> console.log(typeof storage[&quot;c&quot;]);﻿​//string </div><div class="line">//localStorage的读取</div><div class="line">var a=storage.a;</div><div class="line"> console.log(a);  //1</div><div class="line">var b=storage[&quot;b&quot;];</div><div class="line"> console.log(b);  //2</div><div class="line">var c=storage.getItem(&quot;c&quot;);</div><div class="line"> console.log(c);﻿​  //3</div><div class="line">//localStorage的删除</div><div class="line">storage.clear();  //将localStorage的所有内容清除</div></pre></td></tr></table></figure>
 </li>
-</ul>
-<ul>
 <li><p>使用key()方法，获取相应的键</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var storage=window.localStorage;</div><div class="line"> storage.a=1;</div><div class="line"> storage.setItem(&quot;c&quot;,3);</div><div class="line"> for(var i=0;i&lt;storage.length;i++)&#123;</div><div class="line"> var key = storage.key(i);</div><div class="line"> console.log(key);  //a  c</div><div class="line"> &#125;﻿​</div></pre></td></tr></table></figure>
 </li>
@@ -566,7 +597,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地存储localstorage"><span class="nav-number">1.</span> <span class="nav-text">本地存储localstorage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#localstorage-的局限"><span class="nav-number">1.1.</span> <span class="nav-text">localstorage 的局限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#localstorage的用法"><span class="nav-number">1.2.</span> <span class="nav-text">localstorage的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#sessionStorage的用法和localStorage一样用法和localStorage一样，但是关闭计数页面后再打开时会重新开始计数。"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">sessionStorage的用法和localStorage一样用法和localStorage一样，但是关闭计数页面后再打开时会重新开始计数。</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地存储localstorage"><span class="nav-number">1.</span> <span class="nav-text">本地存储localstorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#localstorage-的局限"><span class="nav-number">2.</span> <span class="nav-text">localstorage 的局限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#localstorage的用法"><span class="nav-number">3.</span> <span class="nav-text">localstorage的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#sessionStorage的用法和localStorage一样用法和localStorage一样，但是关闭计数页面后再打开时会重新开始计数。"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">sessionStorage的用法和localStorage一样用法和localStorage一样，但是关闭计数页面后再打开时会重新开始计数。</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -725,6 +756,132 @@
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
 
 
 
