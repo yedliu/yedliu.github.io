@@ -400,41 +400,20 @@
       
         
           
-            <h3 id="npm的使用"><a href="#npm的使用" class="headerlink" title="npm的使用"></a>npm的使用</h3><ul>
-<li>命令<ul>
-<li>npm init 初始化  会生成一个package.json的文件 它里面有我们下载东西的版本记录</li>
-<li>npm install –save jquery  下载安装jQuery，下载什么就写什么</li>
-<li>npm remove –save jquery    删除安装的jQuery</li>
-<li>npm install –save 文件名   它会在当前文件夹创建一个node_modules的文件 是我们需要用到的</li>
-<li>npm install –save -dev  也会下载到我们当前的文件夹的node_modules里面 –&gt; 作用是当前项目工具，用来把我们当前的代码做编译<h3 id="borwser-sync"><a href="#borwser-sync" class="headerlink" title="borwser-sync"></a>borwser-sync</h3></li>
-</ul>
-</li>
-<li>borwser-sync可以实现当代码发生变化是自动刷新浏览器</li>
-<li>安装 npm install borwser-sync -g(-g表示安装到全局)</li>
-<li>使用 borwser-sync start –server –files “文件名”<h3 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h3></li>
-<li>gulp 用来压缩js 、css、html、图片等</li>
-<li>gulp的API<pre><code>+ task  任务，gulp把实现的一个功能叫任务
-+ src   指定要处理到的文件
-+ pipe  管道 用来连接每个方法
-+ dest  指定处理后文件的输出路径
-+ watch 监视文件
-</code></pre></li>
-<li>gulp的安装<pre><code>+ 使用npm进行安装 npm install gulp-cli -gulp
-</code></pre></li>
-<li>gulp的使用<pre><code>*  使用时还需要在项目中通过npm非全局安装gulp
-*  npm install gulp --save-dev
-*  创建gulpfile.js文件
-</code></pre></li>
-<li>gulp 的一些插件也用npm进行安装<pre><code>* gulp-uglify 对js代码进压缩
-* gulp-cssnano 对css代码进行压缩
-* gulp-htmlmin 对html代码进行压缩
-* gulp-concat 对代码进行合并  安装方法：npm install --save-dev gulp-concat  其他的和这个一样
-</code></pre></li>
-<li>具体详情见官网<a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md" target="_blank" rel="external">gulp官网</a><h3 id="具体代码演示"><a href="#具体代码演示" class="headerlink" title="具体代码演示"></a>具体代码演示</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);//得到gulp对象</div><div class="line">var uglify = require(&apos;gulp-uglify)//压缩js代码的方法</div><div class="line">var cssnano = require(&apos;gulp-cssnano&apos;)//压缩css代码的方法</div><div class="line">var htmlmin = require(&apos;gulp-htmlmin)//压缩html代码</div><div class="line">var concat = require(&apos;gulp-concat) //合并代码</div><div class="line">//压缩js代码</div><div class="line">gulp.task(&apos;js&apos;,function()&#123;//参数js表示进行的任务名</div><div class="line">    gulp.src([&apos;1.js&apos;,&apos;2.js&apos;])//多个参数用数组</div><div class="line">    .pipe(concat(&apos;all.js&apos;))//合并到指定的文件，文件名自己命名</div><div class="line">    .pipe(uglify())</div><div class="line">    .pipe(gulp.dest(&apos;./dist&apos;))//放到指定的文件下，这个自己命名</div><div class="line">    &#125;);</div><div class="line">//压缩css代码</div><div class="line">gulp.task(&apos;css&apos;,function()&#123;</div><div class="line">    gulp.src([&apos;1.css&apos;,&apos;2.css&apos;])</div><div class="line">    .pipe(concat(&apos;all.css&apos;))</div><div class="line">    .pipe(cssnano())</div><div class="line">    .pipe(gulp.dest(&apos;./dist&apos;))</div><div class="line">    &#125;);</div><div class="line">//压缩html代码</div><div class="line">gulp.task(&apos;html&apos;,function()&#123;</div><div class="line">    gulp.src(&apos;1.html&apos;)</div><div class="line">    .pipe(htmlmin(&#123; &apos;collapseWhitespace&apos;: true, &apos;minifyJS&apos;: true, &apos;minifyCSS&apos;: true &#125;))//里面的参数可以去[gulp官网](https://github.com/gulpjs/gulp/blob/master/docs/API.md)查看</div><div class="line">    .pipe(gulp.dest(&apos;./dist&apos;))</div><div class="line">    &#125;);</div><div class="line">//监视各个文件</div><div class="line">gulp.watch([&apos;1.js&apos;,&apos;2.js&apos;,&apos;1.css&apos;,&apos;2.css&apos;,&apos;1.html&apos;],[&apos;js&apos;,&apos;css&apos;,&apos;html&apos;]);</div><div class="line">可以监视多个文件,用数组来存放</div></pre></td></tr></table></figure>
-</li>
-</ul>
-
-          
+          npm的使用
+命令
+npm init 初始化  会生成一个package.json的文件 它里面有我们下载东西的版本记录
+npm install –save jquery  下载安装jQuery，下载什么就写什么
+npm remove –save jquery    删除安装的jQuery
+npm install –save 文件名   它会在当前文件夹创建一个node_modules的文件 是我
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/08/npm的使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -575,28 +554,17 @@
       
         
           
-            <h2 id="本地存储localstorage"><a href="#本地存储localstorage" class="headerlink" title="本地存储localstorage"></a>本地存储localstorage</h2><ul>
-<li>localstorage 是 HTML5 提供的在客户端存储数据的新方法，主要作用是将数据保存在客户端中，并且数据是永久保存的，除非人为干预删除。</li>
-<li>localstorage作为本地存储来使用，解决了cookie存储空间不足的问题：cookie中每条cookie的存储空间为4k，但localStorage的存储空间有5M大小。另外，相比于cookie，localStorage可以节约带宽，在同一个域内，浏览器每次向服务器发送请求，http都会带着cookie，使cookie在浏览器和服务器之间来回传递，浪费带宽，但localStorage将第一次请求的数据直接存储到本地，避免了来回传递。<h2 id="localstorage-的局限"><a href="#localstorage-的局限" class="headerlink" title="localstorage 的局限"></a>localstorage 的局限</h2></li>
-<li>只有版本较高的浏览器中才支持 localstorage</li>
-<li>localStorage的值的类型限定为string类型，使用 JSON 时需转换</li>
-<li>如果存储内容过多会消耗内存空间，导致页面变卡，因为localStorage本质上是对字符串的读取</li>
-<li>localstorage 有两种方法：分别是 localstorage 和 sessionStorage 。sessionStorage 方法针对一个 session 进行数据存储。当用户关闭浏览器窗口后，数据会被删除。localStorage与sessionStorage的唯一区别就是localStorage属于永久性存储，而sessionStorage在当会话结束的时候，sessionStorage中的键值对会被清空。<h2 id="localstorage的用法"><a href="#localstorage的用法" class="headerlink" title="localstorage的用法"></a>localstorage的用法</h2></li>
-<li><p>我们在使用localStorage的时候，需要先判断浏览器是否支持localStorage这个属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">if(window.localStorage)&#123;</div><div class="line"> alert(&quot;浏览器支持localStorage&quot;);</div><div class="line"> </div><div class="line"> &#125;else&#123;</div><div class="line"> alert(&quot;浏览器支持localStorage&quot;);</div><div class="line"> &#125;﻿​</div></pre></td></tr></table></figure>
-</li>
-<li><p>接下来分别是它的写入、读取、删除</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//localStorage的写入</div><div class="line">var storage=window.localStorage;</div><div class="line"> storage[&quot;a&quot;]=1;   //写入a字段</div><div class="line"> storage.b=2;   //写入b字段</div><div class="line"> storage.setItem(&quot;c&quot;,3);   //写入c字段</div><div class="line"> console.log(typeof storage[&quot;a&quot;]);  //string</div><div class="line"> console.log(typeof storage[&quot;b&quot;]);  //string</div><div class="line"> console.log(typeof storage[&quot;c&quot;]);﻿​//string </div><div class="line">//localStorage的读取</div><div class="line">var a=storage.a;</div><div class="line"> console.log(a);  //1</div><div class="line">var b=storage[&quot;b&quot;];</div><div class="line"> console.log(b);  //2</div><div class="line">var c=storage.getItem(&quot;c&quot;);</div><div class="line"> console.log(c);﻿​  //3</div><div class="line">//localStorage的删除</div><div class="line">storage.clear();  //将localStorage的所有内容清除</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用key()方法，获取相应的键</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var storage=window.localStorage;</div><div class="line"> storage.a=1;</div><div class="line"> storage.setItem(&quot;c&quot;,3);</div><div class="line"> for(var i=0;i&lt;storage.length;i++)&#123;</div><div class="line"> var key = storage.key(i);</div><div class="line"> console.log(key);  //a  c</div><div class="line"> &#125;﻿​</div></pre></td></tr></table></figure>
-</li>
-<li><p>对用户访问页面的次数进行计数:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">if(localStorage.pagecount)&#123;</div><div class="line"> localStorage.pagecount = Number(localStorage.pagecount)+1;</div><div class="line"> &#125;else&#123;</div><div class="line"> localStorage.pagecount = 1;</div><div class="line"> &#125;</div><div class="line"> document.write(&quot;你第&quot;+localStorage.pagecount+&quot;访问该页面&quot;);﻿​</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="sessionStorage的用法和localStorage一样用法和localStorage一样，但是关闭计数页面后再打开时会重新开始计数。"><a href="#sessionStorage的用法和localStorage一样用法和localStorage一样，但是关闭计数页面后再打开时会重新开始计数。" class="headerlink" title="sessionStorage的用法和localStorage一样用法和localStorage一样，但是关闭计数页面后再打开时会重新开始计数。"></a>sessionStorage的用法和localStorage一样用法和localStorage一样，但是关闭计数页面后再打开时会重新开始计数。</h5>
-          
+          本地存储localstorage
+localstorage 是 HTML5 提供的在客户端存储数据的新方法，主要作用是将数据保存在客户端中，并且数据是永久保存的，除非人为干预删除。
+localstorage作为本地存储来使用，解决了cookie存储空间不足的问题：cookie中每条cookie的存储空间为4k，但localStorage的存储空间有5M大小。另外，相比于cookie，localSt
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/08/本地存储localstorage/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
